@@ -1,11 +1,17 @@
 /**
  * tool-result-cleaner OpenClaw plugin
  * Contract: agentToolResultMiddleware (runtime: pi)
- * 增强版 v1.1.0 | 优化空行、去重、关键词、垃圾日志
+ * OpenClaw 工具输出智能净化插件
  */
 
+const VERSION = "1.1.0";
+
+// 默认配置常量
 const DEFAULT_MAX_LINES = 80;
 const DEFAULT_KEYWORDS = ["error", "fail", "warning", "critical", "ERR", "FAIL"];
+
+// 垃圾日志匹配正则表达式（支持 npm/yarn/pip/apt）
+const GARBAGE_PATTERNS = /^\s*(npm notice|npm WARN|Tarball Details|File:|===|---|[0-9]+\.[0-9]+\.[0-9]+\.\d+|info:|progress:|notice:|debug:|yarn warning|yarn notice|Reading package lists|Building dependency tree)/gim;
 
 function createToolResultCleanerMiddleware({
   maxLinesPerBlock = DEFAULT_MAX_LINES,
@@ -23,11 +29,8 @@ function createToolResultCleanerMiddleware({
       if (block.type === "text") {
         let text = block.text;
 
-        // 1. 增强垃圾日志过滤（支持 npm / yarn / pip / apt / progress）
-        text = text.replace(
-          /^\s*(npm notice|npm WARN|Tarball Details|File:|===|---|[0-9]+\.[0-9]+\.[0-9]+\.\d+|info:|progress:|notice:|debug:|yarn warning|yarn notice|Reading package lists|Building dependency tree)/gim,
-          ""
-        );
+        // 1. 增强垃圾日志过滤（支持 npm/yarn/pip/apt）
+        text = text.replace(GARBAGE_PATTERNS, "");
 
         // 2. 增强空白行清理（清理纯空格、制表符空行）
         text = text.replace(/^\s*$/gm, "");

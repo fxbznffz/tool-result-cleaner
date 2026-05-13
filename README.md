@@ -1,9 +1,18 @@
 
 # tool-result-cleaner OpenClaw Plugin
 
+OpenClaw 工具输出智能净化插件，过滤无用日志、自动去重、保留关键报错，高噪音场景节省 90%+ Token，提升大模型响应速度、保护上下文窗口。
+
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node.js version](https://img.shields.io/badge/node-%3E%3D16-green.svg)
 ![OpenClaw version](https://img.shields.io/badge/openclaw-%3E%3D2026.5.7-orange.svg)
+
+## 基本信息
+
+**支持 runtime**：pi  
+**插件类型**：agentToolResultMiddleware
+**版本**：v1.1.0
+**语言**：JavaScript (ES Module)
 
 ## 简介
 
@@ -260,10 +269,11 @@ fxbznffz
 ## 更新日志
 
 ### v1.1.0（2026-05-14）
-- 增强垃圾日志过滤，支持多种包管理工具
-- 优化去重算法，处理带空格的重复内容
-- 改进关键词匹配，支持大小写不敏感
-- 增加调试模式和详细的统计信息
+- ✨ 增强 npm/yarn/pip/apt 垃圾日志匹配
+- ✨ 优化空白行、伪重复行去重
+- ✨ 关键词大小写不敏感识别
+- ✨ 智能保留漏洞、错误、警告关键行
+- ✨ 增加调试模式和详细的统计信息
 
 ### v1.0.0（2026-05-13）
 - 基础插件功能

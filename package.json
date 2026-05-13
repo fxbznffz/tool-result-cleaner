@@ -1,6 +1,6 @@
 {
   "name": "openclaw-plugin-tool-result-cleaner",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cleans and compacts tool results before sending to model",
   "main": "index.js",
   "type": "module",
