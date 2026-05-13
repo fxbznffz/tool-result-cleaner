@@ -1,0 +1,12 @@
+{
+  "name": "openclaw-plugin-tool-result-cleaner",
+  "version": "1.0.0",
+  "description": "Cleans and compacts tool results before sending to model",
+  "main": "index.js",
+  "type": "module",
+  "openclaw": {
+    "extensions": ["./openclaw.plugin.json"]
+  },
+  "keywords": ["openclaw", "plugin", "tool-result-cleaner"],
+  "license": "MIT"
+}

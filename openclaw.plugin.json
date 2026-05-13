@@ -1,0 +1,13 @@
+{
+  "id": "tool-result-cleaner",
+  "name": "tool-result-cleaner",
+  "description": "Cleans and compacts tool results before sending to model. Removes noise from search/exec output.",
+  "contracts": {
+    "agentToolResultMiddleware": ["pi"]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
